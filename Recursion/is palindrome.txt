@@ -1,0 +1,30 @@
+
+
+import java.util.*;
+class Main {
+	static int palin(String A){
+		int l= A.length();
+		if(l<=1){
+			return 1;
+		}
+			String first = A.substring(0,1);
+			String last = A.substring(l-1,l);
+
+			if(first.equals(last)==false){
+				return 0;
+			}
+			else{
+				return palin(A.substring(1,l-1));
+			}
+	}
+
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String n = myScanner.next();
+		//System.out.print(n);
+
+		int ans = palin(n);
+		System.out.print(ans);
+	}
+}

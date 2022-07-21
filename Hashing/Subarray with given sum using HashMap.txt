@@ -1,0 +1,50 @@
+Given an array of positive integers A and an integer B, find and return first continuous subarray which adds to B.
+
+If the answer does not exist return an array with a single element "-1".
+
+First sub-array means the sub-array for which starting index in minimum.
+
+
+
+
+
+
+public class Solution {
+
+    public int[] solve(int[] A, int B) {
+       		int l= A.length;
+
+		int start = 0; int end = -1;
+		HashMap<Long, Integer> hm = new HashMap<>();
+		long sum=0;
+		for(int i=0;i<l;i++){
+			sum=sum+A[i];
+			if(sum-B==0){
+				start= 0; end = i;
+				break;
+			}
+			if(hm.containsKey(sum-B)){
+				start=hm.get(sum-B)+1;
+				end = i;
+				break;
+			}
+
+			hm.put(sum,i);
+		}
+
+		int[] ans10 = new int[1];
+		ans10[0]=-1;
+		
+		int lgx = end-start+1;
+		int[] ans11 = new int[lgx];
+		for(int i=0;i<lgx;i++){
+			ans11[i]=A[start+i];
+		}
+
+		if(end==-1){
+			return ans10;
+		}
+		
+		return ans11; 
+    }
+}

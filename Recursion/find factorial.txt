@@ -1,0 +1,12 @@
+public class Solution {
+    public int solve(int A) {
+	
+		if(A==1){
+			return 1;
+		}
+
+		int fAm1 = solve(A-1);	
+		int fA = A*fAm1;
+		return  fA;
+    }
+}

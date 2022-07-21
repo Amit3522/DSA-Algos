@@ -1,0 +1,79 @@
+Given an array A of N integers.
+
+Find the largest continuous sequence in a array which sums to zero.
+
+
+
+Problem Constraints
+
+1 <= N <= 106
+
+-107 <= A[i] <= 107
+
+
+
+Input Format
+
+Single argument which is an integer array A.
+
+
+
+Output Format
+
+Return an array denoting the longest continuous sequence with total sum of zero.
+
+NOTE : If there are multiple correct answers, return the sequence which occurs first in the array.
+
+
+
+Example Input
+
+A = [1,2,-2,4,-4]
+
+
+Example Output
+
+[2,-2,4,-4]
+
+
+Example Explanation
+
+[2,-2,4,-4] is the longest sequence with total sum of zero.
+
+
+public class Solution {
+    public ArrayList<Integer> lszero(ArrayList<Integer> A) {
+		int l = A.size();
+		HashMap<Long, Integer> hm = new HashMap<>();
+		long sum =0;  int leng =0; int start =0; int end = 0;
+		hm.put(sum,-1);
+		
+		for(int i=0;i<l;i++){
+			sum=sum+A.get(i);
+			if(hm.containsKey(sum) && (i-hm.get(sum)) > leng){
+					start = hm.get(sum)+1;
+					end = i;
+					leng=(i-hm.get(sum));
+			}
+			else{
+                if(hm.containsKey(sum)==false){
+                    hm.put(sum,i);
+                }
+				
+			}
+		}
+
+		ArrayList<Integer> ans = new ArrayList<Integer>();
+        ArrayList<Integer> ans1 = new ArrayList<Integer>();
+		for(int i=start;i<=end;i++){
+			ans.add(A.get(i));
+		}
+         if(leng!=0){
+		 	return ans;
+		 }
+
+		return ans1;
+
+		
+    }
+}

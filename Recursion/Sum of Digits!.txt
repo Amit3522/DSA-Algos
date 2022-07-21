@@ -1,0 +1,16 @@
+Given a number A, we need to find the sum of its digits using recursion.
+
+
+public class Solution {
+    public int solve(int A) {
+        if(A/10==0){
+            return A%10;
+        }
+        int ans = solve(A/10)+A%10;
+        return ans;
+    }
+}
+
+
+
+
