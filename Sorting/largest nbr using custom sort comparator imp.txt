@@ -1,0 +1,109 @@
+Problem Description
+Given an array A of non-negative integers, arrange them such that they form the largest number.
+
+Note: The result may be very large, so you need to return a string instead of an integer.
+
+
+
+Problem Constraints
+1 <= len(A) <= 100000
+0 <= A[i] <= 2*109
+
+
+
+Input Format
+The first argument is an array of integers.
+
+
+
+Output Format
+Return a string representing the largest number.
+
+
+
+Example Input
+Input 1:
+
+ A = [3, 30, 34, 5, 9]
+Input 2:
+
+ A = [2, 3, 9, 0]
+
+
+Example Output
+Output 1:
+
+ "9534330"
+Output 2:
+
+ "9320"
+
+
+Example Explanation
+Explanation 1:
+
+Reorder the numbers to [9, 5, 34, 3, 30] to form the largest number.
+Explanation 2:
+
+Reorder the numbers to [9, 3, 2, 0] to form the largest number 9320.
+
+
+
+
+
+
+
+
+
+===
+import java.util.*;
+
+class cmpStr implements Comparator<String>{
+	public  int compare(String k1, String k2){
+		String c = k1+k2; String d = k2+k1;
+			if(c==d){
+				return 0;
+			}
+			return d.compareTo(c);
+	}
+} 
+
+class Main {
+	public static String LargeNbr(ArrayList<Integer> A){
+		int l = A.size();
+		ArrayList<String> s = new ArrayList<String>();
+		for(int i=0 ;i<l;i++){
+			s.add(Integer.toString(A.get(i)));
+		}
+
+		Collections.sort(s, new cmpStr());
+
+		StringBuilder sb = new StringBuilder();
+		int count = 0;
+		for(int i=0;i<l;i++){
+			sb.append(s.get(i));
+			if(Integer.valueOf(s.get(i))==0){
+				count=count+1;
+			}
+		}
+		if(count==l){
+			return "0";
+		}
+		return sb.toString();
+	}
+
+
+
+	public static  void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n = myScanner.nextInt();
+		ArrayList<Integer> a = new ArrayList<Integer>();
+		for(int i =0;i<n;i++){
+			a.add(myScanner.nextInt());
+		}
+
+		String ans = LargeNbr(a);
+		System.out.print(ans);
+
+	}
+}

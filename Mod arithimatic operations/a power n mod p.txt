@@ -1,0 +1,18 @@
+import java.util.*;
+class Main {
+	static long calcMod(long A, long N , long P){
+		long ans=0;
+		ans=Math.round((Math.pow(A,N))%P);
+		return ans;
+	}
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		long a =myScanner.nextInt();
+		long n =myScanner.nextInt();
+		long p =myScanner.nextInt();
+
+		long ans1 = calcMod(a,n,p);
+		System.out.print(ans1);
+		
+	}
+}

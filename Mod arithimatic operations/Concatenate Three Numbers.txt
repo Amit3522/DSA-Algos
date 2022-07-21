@@ -1,0 +1,69 @@
+Given three 2-digit integers, A, B, and C, find out the minimum number obtained by concatenating them in any order.
+
+Return the minimum result obtained.
+
+
+
+
+
+public class Solution {
+    public int solve(int A, int B, int C) {
+        	// find min and Max 
+	int min= 100;
+	int max =0;
+
+
+	if(A<min){
+		min=A;
+	}
+	if(B<min){
+		min=B;
+	}
+	if(C<min){
+		min = C;
+	}
+
+	if(A>max){
+		max=A;
+	}
+	if(B>max){
+		max=B;
+	}
+	if(C>max){
+		max = C;
+	}
+
+		// convert in to String
+		String a = Integer.toString(A);
+		String b = Integer.toString(B);
+		String c = Integer.toString(C);
+		String ans=a+b+c;
+
+	
+
+	if(A==min && B==max){
+		ans=a+c+b;
+	}
+	if(A==min && C==max){
+		ans=a+b+c;
+	}
+	if(A==max && B==min){
+		ans=b+c+a;
+	}
+	if(A==max && C==min){
+		ans=c+b+a;
+	}
+	if(B==max && C==min){
+		ans=c+a+b;
+	}
+	if(B==min && C==max){
+		ans=b+a+c;
+	}
+		// convert String to int
+		int ansf= 0;
+		ansf=Integer.parseInt(ans);
+
+		return ansf; 
+
+    }
+}

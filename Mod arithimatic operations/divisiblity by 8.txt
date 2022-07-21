@@ -1,0 +1,43 @@
+
+
+
+
+import java.util.*;
+class Main {
+	static int div8(String A){
+		int l = A.length();
+		int ans=0;
+		// if single digit number
+		if(l==1){
+			if((A.charAt(0))%8==0){
+				ans=1;
+			}
+		}
+		else if(l==2){
+			if((A.charAt(l-2)*10 + A.charAt(l-1))%8==0){
+				ans=1;
+			}
+		}
+		//if number is greater than 2 digits
+		else if(l>2){
+			if((A.charAt(l-3)*100 + A.charAt(l-2)*10 + A.charAt(l-1))%8==0){
+				ans=1;
+			}
+		}
+		else{
+			ans=0 ;
+		}
+
+		return ans;
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String a = myScanner.next();
+		//System.out.print(a);
+
+		int ans = div8(a);
+		System.out.print(ans);
+
+	}
+}

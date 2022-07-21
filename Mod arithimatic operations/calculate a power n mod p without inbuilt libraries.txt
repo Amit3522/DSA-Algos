@@ -1,0 +1,40 @@
+	// given a, n, p - calculate a^n%p
+	static int FindMod(int A, int N, int P){
+		// function to find a power N
+		int ans=1;
+		for(int i =0;i<N;i++){
+			ans=ans*A;
+		}
+		int finalAns =0;
+		finalAns=ans%P;
+
+		return finalAns; 
+	}
+
+====
+
+
+avoid overflow
+
+import java.util.*;
+class Main {
+	// given a, n, p - calculate a^n%p // avoid overflow
+	static long FindMod(int A, int N, int P){
+		// function to find a power N
+		long ans=1;
+		for(int i =0;i<N;i++){
+			ans=((ans%P)*(A%P))%P;
+		}
+		return ans; 
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int a = myScanner.nextInt();
+		int n = myScanner.nextInt();
+		int p = myScanner.nextInt();
+		
+		long ans1= FindMod(a,n,p);
+		System.out.print(ans1);
+	}
+}

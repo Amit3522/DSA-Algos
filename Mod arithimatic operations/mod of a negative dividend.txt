@@ -1,0 +1,22 @@
+import java.util.*;
+class Main {
+	static int FindMod(int A, int B){
+		int ans=0;
+		if(A<0){
+			ans=A%B+B;
+		}
+		else{
+			ans=A%B;
+		}
+		return ans;
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int a = myScanner.nextInt();
+		int b = myScanner.nextInt();
+		
+		int ans1= FindMod(a,b);
+		System.out.print(ans1);
+	}
+}

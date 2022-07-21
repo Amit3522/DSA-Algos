@@ -1,0 +1,21 @@
+public class Solution {
+    public int compressBits(int[] A) {
+        int l = A.length;
+        int[] ar = new int[l];
+		ar=A;
+        int i=0;int j=i+1; int ans=0;
+ 
+        while(j<l){
+            int temp = ar[i] & ar[j];
+            ar[j]=ar[i] | ar[j];
+			ar[i]=temp;
+            i++;
+            j++;
+        }
+        for(int k=0;k<l-1;k++){
+            ans=(ar[k]^ar[k+1]);
+            ar[k+1]=ans;
+        }
+        return ans;
+    }
+}

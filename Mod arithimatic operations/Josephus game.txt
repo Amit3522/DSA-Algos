@@ -1,0 +1,31 @@
+import java.util.*;
+class Main {
+	// find nearest power of 2 <=n
+	static int pwTwo(int N){
+		int ans =1; int finalans = 0;
+		while(ans<=N){
+			ans=ans*2;
+			if(ans<=N){
+				finalans=ans;
+			}
+		}
+		return  finalans;
+	}
+
+	static int Josephus(int n){
+		int y = pwTwo(n);
+		int kills = n-y;
+		int ans = 1+2*(kills);
+		return ans;
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n = myScanner.nextInt();
+		int k = myScanner.nextInt();
+		
+		int ans1= Josephus(n);
+		System.out.print(ans1);
+
+	}
+}

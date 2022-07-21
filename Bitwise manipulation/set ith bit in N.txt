@@ -1,0 +1,17 @@
+import java.util.*;
+class Main {
+	static int setIthBit(int N , int i){
+		return (N|(1<<2));
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n = myScanner.nextInt();
+		int i = myScanner.nextInt();
+		
+		int ans = setIthBit(n,i);
+		System.out.print(ans);
+
+	
+	}
+}

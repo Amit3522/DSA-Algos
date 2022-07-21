@@ -1,0 +1,26 @@
+import java.util.*;
+class Main {
+	// unset ith bit in N 
+	static int UnsetIthBit(int N, int i){
+		return (N^(1<<i));
+	}
+
+	// set ith bit in N
+	static int setIthBit(int N , int i){
+		return (N|(1<<2));
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n = myScanner.nextInt();
+		int i = myScanner.nextInt();
+		
+		int ans = setIthBit(n,i);
+		//System.out.print(ans);
+		
+		int ans1 = UnsetIthBit(n,i);
+		System.out.print(ans1);
+
+	
+	}
+}

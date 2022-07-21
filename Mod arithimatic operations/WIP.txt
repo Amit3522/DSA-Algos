@@ -1,0 +1,69 @@
+import java.util.*;
+class Main {
+	static ArrayList<Integer> findRepeatMissing(ArrayList<Integer> A){
+		long l = A.size();
+		long b = 0; // missing nbr
+		long c= 0; // repeated nbr
+
+		// find sum of all natural nbr till l 
+		long s1 = (l*(l+1))/2;
+		
+
+		// find sum of sqrs of all natural nbrs till l 
+		long s2 =  (l*(l+1)*(2*l+1))/6; 
+		
+
+		// find sum of all elements of array elements and sum of all sqrs of array elements
+		long s3 =0;  long s4=0;
+		for(int i=0;i<l;i++){
+			s3=s3+A.get(i);
+			s4=s4+A.get(i)*A.get(i);
+		}
+
+		// calculation in comments below
+		b = ((s1-s3) + (s2-s4)/(s1-s3))/2;
+		c=s3-s1+b; 
+
+
+		  ArrayList<Integer> ans = new ArrayList<Integer>();
+				ans.add((int)c);
+				ans.add((int)b);
+
+		return ans;
+	}
+
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n = myScanner.nextInt();
+		ArrayList<Integer> a = new ArrayList<Integer>();
+		for(int i = 0;i<n;i++){
+			a.add(myScanner.nextInt());
+			//System.out.print(a.get(i));
+		}
+
+		ArrayList<Integer> ans1 = findRepeatMissing(a);
+		for(int i=0;i<2;i++){
+			System.out.print(ans1.get(i)+" ");
+		}
+	}
+}
+
+		/*
+		s1=s3+b-c;
+		s1-s3=b-c; ---eq 1
+
+		s2=s4-b square + c square;
+		s2-s4 = (b-c)*(b+c);
+		(s2-s4)/(s1-s3)= b+c; -- eq 2
+
+		add 1 and 2
+
+		(s1-s3) + (s2-s4)/(s1-s3) = 2b
+			b = ((s1-s3) + (s2-s4)/(s1-s3))/2 - eq 3
+			-c= s1-s3-b
+			c=-s1+s3+b
+			c==s3-s1+b - eq 4
+
+
+		*/

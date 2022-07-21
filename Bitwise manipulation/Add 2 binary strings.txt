@@ -1,0 +1,59 @@
+Problem Description
+Given two binary strings, return their sum (also a binary string).
+Example:
+
+a = "100"
+
+b = "11"
+Return a + b = "111".
+
+
+
+====================================
+import java.util.*;
+class Main {
+	static String addBinary(String A, String B){
+		int l1 = A.length();
+		int l2 = B.length();
+		int N = l2;
+		if(l1>l2){
+			N = l1;
+			int diff = l1-l2;
+			for(int i=0;i<diff;i++){
+				 B='0'+B;
+			}
+		}
+		else if(l2>l1){
+			int diff=l2-l1;
+			for(int i=0;i<diff;i++){
+				 A='0'+A;
+			}
+		}
+		
+		String s = "";
+		int [] c = new int[N];
+		int carry = 0; int sum=0;
+		for (int i=N-1; i>=0;i--){
+			int a=A.charAt(i)-'0';
+			int b=B.charAt(i)-'0';
+			c[i]=(a+b+carry)%2;
+			carry=(a+b+carry)/2;
+			s=c[i]+s;
+		}
+		if (carry!=0){
+			s=carry+s;
+		}
+		return s;
+	}
+
+
+
+	public static void main(String args[]) {
+		Scanner myScanner= new Scanner(System.in);
+		String a = myScanner.next();
+		String b = myScanner.next();
+
+		String s = addBinary(a,b);
+		System.out.print(s);
+	}
+}

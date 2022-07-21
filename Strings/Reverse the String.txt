@@ -1,0 +1,105 @@
+Problem Description
+You are given a string A of size N.
+
+Return the string A after reversing the string word by word.
+
+NOTE:
+
+A sequence of non-space characters constitutes a word.
+Your reversed string should not contain leading or trailing spaces, even if it is present in the input string.
+If there are multiple spaces between words, reduce them to a single space in the reversed string.
+
+
+Problem Constraints
+1 <= N <= 3 * 105
+
+
+
+Input Format
+The only argument given is string A.
+
+
+
+Output Format
+Return the string A after reversing the string word by word.
+
+
+
+Example Input
+Input 1:
+    A = "the sky is blue"
+Input 2:
+    A = "this is ib"
+
+
+Example Output
+Output 1:
+    "blue is sky the"
+Output 2:
+    "ib is this"    
+
+
+Example Explanation
+Explanation 1:
+    We reverse the string word by word so the string becomes "the sky is blue".
+Explanation 2:
+    We reverse the string word by word so the string becomes "this is ib".
+
+
+
+
+import java.util.*;
+class Main {
+	static String rev(String A){
+        int l = A.length();
+		char[] a = new char[l];
+		a=A.toCharArray();
+		
+		int i=0;int j=l-1;char temp;
+		while(i<j){
+			temp= a[i];
+			a[i]=a[j];
+			a[j]=temp;
+			i++ ; j--;
+		}
+		
+		int p1 =0; int p2=0;
+		while(p1<l){
+			
+			if(p2<l && a[p2]!=' ' ){
+				p2++;
+			}
+			else {
+				int temp2 = p2;
+				while(p1<p2){ 
+					char temp1 = a[p1];
+					a[p1]=a[p2-1];
+					a[p2-1]=temp1;
+					p1++;
+					p2--;	
+				}
+				p1=temp2+1;	
+				p2=p1;	
+			} 	
+		}
+
+		String ans = new String();
+		ans=String.valueOf(a);
+
+		return ans.trim();
+
+	}
+
+
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String a = myScanner.nextLine();
+
+
+		String ans1 = rev(a);
+		System.out.print(ans1);
+
+
+	}
+}

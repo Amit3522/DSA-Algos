@@ -1,0 +1,71 @@
+import java.util.*;
+class Main {
+	static boolean checkSetBit(int N, int i){
+		if(((N>>i)&1)==1){
+			return true;
+		}
+		return false; 
+	}
+
+	// count number of set bits
+	static int CountSetBit(int N){
+		int count=0;
+		for(int i=0;i<32;i++){
+			if(checkSetBit(N,i)){
+				count=count+1;
+			}
+		}
+		return count;
+	}
+
+	// while loop to count set bits
+	static int wloop(int N){
+		int count=0;
+		while(N>0){
+			if((N&1)==1){
+				count=count+1;
+			}
+			N=N>>1;
+		}
+			
+		return count;
+	}
+
+	//set xth and yth bir in zero
+	static int SetXy(int x, int y){
+		//2 power x + 2 power y
+		// same as 1<<n = 2 power n
+		if(x!=y){
+			return((1<<x) +(1<<y));
+		}
+			return(1<<x);
+		
+	}
+
+		// set x th and yth bit in zero using OR bitwise operator
+	static int SetXy2(int x, int y){
+		return ((1<<x)|(1<<y));
+	}
+
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n =myScanner.nextInt();
+		int i =myScanner.nextInt();
+		int j = myScanner.nextInt();
+		boolean ans = checkSetBit(n,i);
+		//System.out.print(ans);
+
+		int ct = CountSetBit(n);
+		//System.out.print(ct);
+
+		int ct1 = wloop(n);
+		//System.out.print(ct1);
+
+		int st1 = SetXy(i,j);
+		//System.out.print(st1);
+
+		int st2 = SetXy2(i,j);
+		System.out.print(st2);
+	}
+}

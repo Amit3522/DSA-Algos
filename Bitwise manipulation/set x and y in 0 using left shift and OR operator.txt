@@ -1,0 +1,16 @@
+	static int SetXy(int x, int y){
+		//2 power x + 2 power y
+		// same as 1<<n = 2 power n
+		if(x!=y){
+			return((1<<x) +(1<<y));
+		}
+			return(1<<x);
+		
+	}
+
+=====
+
+Or operator
+static int SetXy2(int x, int y){
+		return ((1<<x)|(1<<y));
+	}

@@ -1,0 +1,35 @@
+(a+b)%M = (a%M + b%M)%M
+
+
+import java.util.*;
+class Main {
+	// calculate (a+b)%M
+	static int FindMod(int A, int B, int M){
+		int ans=0;
+		
+		if(A<0 && B>0){
+			ans = ((A%M+M)+B%M)%M;
+		}
+		else if(A>0 && B<0){
+			ans = (A%M+(B%M+M))%M;
+		}
+		else if(A<0 && B<0){
+			ans = ((A%M+M)+(B%M+M))%M;
+		}
+		else{
+			ans= (A%M+B%M)%M;
+		}
+
+		return ans;
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int a = myScanner.nextInt();
+		int b = myScanner.nextInt();
+		int m = myScanner.nextInt();
+		
+		int ans1= FindMod(a,b,m);
+		System.out.print(ans1);
+	}
+}
