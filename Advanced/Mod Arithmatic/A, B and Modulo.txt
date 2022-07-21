@@ -1,0 +1,94 @@
+
+
+Problem Description
+Given two integers A and B, find the greatest possible positive integer M, such that A % M = B % M.
+
+
+
+Problem Constraints
+1 <= A, B <= 109
+A != B
+
+
+
+Input Format
+The first argument is an integer A.
+The second argument is an integer B.
+
+
+
+Output Format
+Return an integer denoting the greatest possible positive M.
+
+
+
+Example Input
+Input 1:
+
+A = 1
+B = 2
+Input 2:
+
+A = 5
+B = 10
+
+
+Example Output
+Output 1:
+
+1
+Output 2:
+
+5
+
+
+Example Explanation
+Explanation 1:
+
+1 is the largest value of M such that A % M == B % M.
+Explanation 2:
+
+For M = 5, A % M = 0 and B % M = 0.
+
+No value greater than M = 5, satisfies the condition.
+
+A%M = B%M
+
+greatest possible value of M
+
+M could differ in 3 scenarios
+
+A>B , A<B , A==B
+
+A>B
+B = B
+B = A - A +B
+B = A - (A-B)
+taking (A-B) mod on both sides
+B%(A-B) = A%(A-B)
+
+A-B = M; 
+
+B>A
+
+A = A
+A = B - B +A
+A = B - (B-A)
+taking B- A mod on both sides
+A(B-A) = B(B-A)
+M= B-A
+
+
+public class Solution {
+    public int solve(int A, int B) {
+        if(A==B){
+            return 1;
+        }
+        else if(A>B){
+            return A-B;
+        }
+        return B-A;
+    }
+}
+
+

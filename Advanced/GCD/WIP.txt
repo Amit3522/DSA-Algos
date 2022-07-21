@@ -1,0 +1,50 @@
+public class Solution {
+        //create a function to find gcd
+    static int gcd(int a,int b){
+                if(b==0){
+                    return a;
+                }
+                return gcd(b,b%a);
+    }
+        //create a function to find prefix gcd array
+        static int[] pfxgcd(int[] A){
+            int l = A.length;
+            int[] pfxGCD = new int[l];
+            pfxGCD[0] = A[0];
+            for(int i=1;i<l;i++){
+                pfxGCD[i] = gcd(pfxGCD[i-1],A[i]);
+            }
+                return pfxGCD;
+        }
+
+        // create a suffix gcd array 
+        static int sfxgcd(int[] A,int j){
+            int l = A.length;
+            int[] sfxGCD = new int[l];
+            int ans=0;
+            sfxGCD[l-1] = A[l-1];   
+            for(int i=l-2; i>=0;i--){
+                sfxGCD[i] = gcd(sfxGCD[i+1],A[i]);
+                ans= sfxGCD[i];
+            }
+                return ans;
+        }
+
+
+        
+    public int solve(int[] A) {
+            int l = A.length;
+            int ans = 0;
+            for(int i = 0;i<l;i++){
+                ans = Math.max(ans,pfxgcd(A,i));
+            }
+
+                return ans;
+    }
+}
+
+
+
+
+
+

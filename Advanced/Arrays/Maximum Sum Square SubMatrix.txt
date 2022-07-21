@@ -1,0 +1,134 @@
+Problem Description
+Given a 2D integer matrix A of size N x N, find a B x B submatrix where B<= N and B>= 1, such that the sum of all the elements in the submatrix is maximum.
+
+
+
+Problem Constraints
+1 <= N <= 103.
+
+1 <= B <= N
+
+-102 <= A[i][j] <= 102.
+
+
+
+Input Format
+First arguement is an 2D integer matrix A.
+
+Second argument is an integer B.
+
+
+
+Output Format
+Return a single integer denoting the maximum sum of submatrix of size B x B.
+
+
+
+Example Input
+Input 1:
+
+ A = [
+        [1, 1, 1, 1, 1]
+        [2, 2, 2, 2, 2]
+        [3, 8, 6, 7, 3]
+        [4, 4, 4, 4, 4]
+        [5, 5, 5, 5, 5]
+     ]
+ B = 3
+Input 2:
+
+ A = [
+        [2, 2]
+        [2, 2]
+    ]
+ B = 2
+
+
+Example Output
+Output 1:
+
+ 48
+Output 2:
+
+ 8
+
+
+Example Explanation
+Explanation 1:
+
+    Maximum sum 3 x 3 matrix is
+    8 6 7
+    4 4 4
+    5 5 5
+    Sum = 48
+Explanation 2:
+
+ Maximum sum 2 x 2 matrix is
+  2 2
+  2 2
+  Sum = 8
+
+
+
+See Expected Output
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class Solution {
+    public int solve(int[][] A, int B) {
+        // find max sum sub matrix
+        //check if the size if B by B, if yes, return 
+        // 5-3 , 5-3 , T L - ROW(0 TO 2), COL(O TO 2)
+        // BR ROW(ROW TL + 3) , COL(COL TL+3);
+        int r = A.length;
+        int c = A[0].length;
+        //create a prefix sum submatix
+        int[][] pfx = new int[r][c];
+        for(int i=0;i<c;i++){
+            pfx[0][i] = A[0][i];
+        }
+        //top down
+        for(int i=1;i<r;i++){
+            for(int j=0;j<c;j++){
+                pfx[i][j] = A[i][j]+pfx[i-1][j];
+            }
+        }
+        //left right
+        for(int i = 0;i<r;i++){
+            for(int j=1;j<c;j++){
+                pfx[i][j] = pfx[i][j]+pfx[i][j-1];
+            }
+        }
+
+        // iterate over submatrix and find 3 by 3 matrices and max sum using BR
+        int maxsum = Integer.MIN_VALUE;
+        for(int i=0;i<r;i++){
+            int sum = Integer.MIN_VALUE; 
+            for(int j=0;j<c;j++){
+
+                 if(i<=(r-B) && j<=(c-B)){
+                if(i==0 && j==0)  sum= Math.max(sum,pfx[i+B-1][j+B-1]);
+                else if(i==0) sum= Math.max(sum,pfx[i+B-1][j+B-1] - pfx[i+B-1][j-1]);
+                else if(j==0) sum= Math.max(sum,pfx[i+B-1][j+B-1] - pfx[i-1][j+B-1]);
+                else 
+                sum= Math.max(sum,(pfx[i+B-1][j+B-1]-pfx[i+B-1][j-1]-pfx[i-1][j+B-1]+pfx[i-1][j-1]));
+                    
+
+                 }
+            maxsum=Math.max(maxsum,sum);
+        }
+           
+    }
+         return maxsum;
+    }
+}

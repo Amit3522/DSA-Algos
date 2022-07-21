@@ -1,0 +1,17 @@
+public class Solution {
+    static int power(int x, int y, int m){
+         if (y == 0)
+            return 1;
+        int p = power(x, y / 2, m) % m;
+        p = (int)((p * (long)p) % m);
+        if (y % 2 == 0)
+            return p;
+        else
+            return (int)((x * (long)p) % m);
+    }
+    public int solve(int A, int B) {
+        int ans= power(A, (B-2), B );
+        return ans;
+
+    }
+}

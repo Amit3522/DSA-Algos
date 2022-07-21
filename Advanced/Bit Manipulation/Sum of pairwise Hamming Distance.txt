@@ -1,0 +1,58 @@
+Hamming distance between two non-negative integers is defined as the number of positions at which the corresponding bits are different.
+
+For example,
+
+HammingDistance(2, 7) = 2, as only the first and the third bit differs in the binary representation of 2 (010) and 7 (111).
+
+Given an array of N non-negative integers, find the sum of hamming distances of all pairs of integers in the array. Return the answer modulo 1000000007.
+
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int hammingDistance(final int[] A) {
+        int l=A.length;
+        long count =0;
+        long ans = 0;
+        for(int i=0;i<32;i++){
+             count =0; 
+            for(int j=0;j<l;j++){
+                if((A[j]&(1<<i))!=0){
+                    count++;
+                    
+                }
+                 
+            }
+            ans=  (ans+count*(l-count)*2)%1000000007;
+        }
+       
+            return (int)ans%1000000007;
+    }
+}
+
+
+
+brute force
+
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int hammingDistance(final int[] A) {
+        int l=A.length;
+        ArrayList<Integer> xorar = new ArrayList<>();
+        long ans = 0;
+        // do xor of all elements A with each other 
+        for(int i =0;i<l;i++){
+            for(int j=0;j<l;j++){
+                xorar.add(A[i]^A[j]);
+            }
+        }
+        // iterate over xor array
+        for(int i=0;i<xorar.size();i++){
+            for(int j=0;j<32;j++){
+                if(((xorar.get(i)>>j) & 1)==1){
+                    ans=(ans%1000000007+1)%1000000007;
+                }
+            }
+        }
+                return (int)ans%1000000007;
+    }
+}
+

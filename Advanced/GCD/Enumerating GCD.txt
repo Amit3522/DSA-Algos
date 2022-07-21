@@ -1,0 +1,17 @@
+Lesson learnt
+
+1. GCD of 2 consecutive numbers is always 1
+2. A.equals(B)  - This is how you compare 2 strings
+
+
+public class Solution {
+
+    public String solve(String A, String B) {
+        if(A.equals(B)){
+            return A;
+        }
+        else{
+            return "1";
+        }
+    }
+}

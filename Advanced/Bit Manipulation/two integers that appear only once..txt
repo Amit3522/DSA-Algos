@@ -1,0 +1,42 @@
+Problem Description
+Given an array of positive integers A, two integers appear only once, and all the other integers appear twice.
+Find the two integers that appear only once.
+
+public class Solution {
+    public int[] solve(int[] A) {
+        int l = A.length;
+        int[] ans = new int[2];
+        int xxry = 0;
+        //do xor on all numbers
+        for(int val: A){
+            xxry = xxry^val;
+        }
+
+        int rsbm = xxry & -xxry;
+        int x = 0;
+        int y = 0;
+
+        // xor based on numbers with right most set bit 
+        for(int val: A){
+            if((val & rsbm) == 0){
+                x = x^ val;
+            }
+            else{
+                y = y^ val;
+            }
+        }
+        if(x<y){
+            ans[0]=x;
+            ans[1]=y;
+        }
+        else{
+            ans[0]=y;
+            ans[1]=x;
+        }
+        return ans;
+    }
+}
+
+
+
+
