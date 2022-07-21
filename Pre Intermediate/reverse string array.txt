@@ -1,0 +1,31 @@
+import java.util.Scanner;
+class Main {
+	static String reverse(String A){
+		String[] s1 = A.split(" ");
+		int l2=s1.length;
+		String[] s2=new String[l2];
+		for(int i=l2-1;i>=0;i--){
+			if(i==0){
+				s2[i]=s1[i];
+			}
+			else{
+				s2[i]=s1[i]+" ";
+			}
+		}
+		String st1="";
+			for(int i =l2-1; i>=0;i--){
+				st1=st1+s2[i];
+			}
+			return st1; 
+	}
+
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String A1=myScanner.nextLine();
+		//System.out.print(A1);
+
+		String rv = reverse(A1);
+		System.out.print(rv);
+	}
+}

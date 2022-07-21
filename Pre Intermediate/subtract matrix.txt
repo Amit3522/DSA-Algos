@@ -1,0 +1,45 @@
+import java.util.Scanner;
+class Main {
+	static int[][] subtract(int[][] A1,int[][]B1){
+			int ro1=A1.length;
+			int co1=A1[0].length;
+			int ro2=B1.length;
+			int co2=B1[0].length;
+			int[][] C=new int[ro1][co1];
+			for (int i=0;i<ro1;i++){
+				for (int j=0;j<co1;j++){
+					C[i][j]=A1[i][j]-B1[i][j];
+				}
+			}
+			return C;
+	}
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int r1=myScanner.nextInt();
+		int c1=myScanner.nextInt();
+		int [][] A =new int[r1][c1];
+		for(int i=0;i<r1;i++){
+			for(int j=0;j<c1;j++){
+				A[i][j]=myScanner.nextInt();
+				//System.out.print(A[i][j]);
+			}
+		}
+
+		int r2=myScanner.nextInt();
+		int c2=myScanner.nextInt();
+		int[][] B = new int[r2][c2];
+		for (int i=0;i<r2;i++){
+			for(int j=0;j<c2;j++){
+				B[i][j]=myScanner.nextInt();
+				//System.out.print(B[i][j]);
+			}
+		}
+		int[][] sub =subtract(A,B);
+		for(int i=0;i<r1;i++){
+			for(int j=0;j<c1;j++){
+				System.out.print(sub[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+}

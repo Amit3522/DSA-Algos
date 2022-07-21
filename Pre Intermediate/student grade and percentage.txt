@@ -1,0 +1,35 @@
+import java.util.Scanner; 
+
+class Main {
+	public static void main(String args[]) {
+		Scanner myScanner= new Scanner(System.in);
+		int A = myScanner.nextInt();
+		int B = myScanner.nextInt();
+		int C = myScanner.nextInt();
+		int D = myScanner.nextInt();
+		int E = myScanner.nextInt();
+		int F =  (A+B+C+D+E)/5;
+		
+			if (F>=90){
+			System.out.println(F + " A" );
+		}
+		else if (F>=80){
+			System.out.println(F + " B" );
+		}
+		else if (F>=70){
+			System.out.println(F + " C" );
+		}
+		else if (F>=60){
+			System.out.println(F + " D" );
+		}
+		else if (F>=40){
+			System.out.println(F + " E" );
+		}
+		else {
+			System.out.println(F + " F" );
+		}
+		
+		
+	
+	}
+}

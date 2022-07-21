@@ -1,0 +1,33 @@
+import java.util.Scanner;
+class Main {
+	static int[] ct(int A1[]){
+		int r=A1.length;
+		int[] B=new int[r];
+		for(int i=0;i<r;i++){
+			int count=0;
+			for(int j=0;j<r;j++){
+				if(A1[i]==A1[j]){
+					count=count+1;
+				}
+			}
+			B[i]=count;
+		}
+		return B;
+	}
+
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int r=myScanner.nextInt();
+		int[] A=new int[r];
+		for(int i=0;i<r;i++){
+			A[i]=myScanner.nextInt();
+			//System.out.print(A[i]);
+		}
+		int[] c= ct(A);
+		for(int i=0;i<r;i++){
+			System.out.print(c[i]);
+		}
+		
+	}
+}

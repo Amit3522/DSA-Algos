@@ -1,0 +1,30 @@
+import java.util.Scanner;
+class Main {
+	static int substring1(String A, String B){
+		int l1=A.length();
+		int l2=B.length();
+		for(int i=0;i<l1;i++){
+			int j;
+			for(j=0;j<l2;j++){
+				if(A.charAt(i+j)!=B.charAt(j)){
+					break;
+				}
+			}
+				if(j==l2){
+					return i+1;
+				}
+		}	
+		return -1;
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String A1=myScanner.next();
+		String B1=myScanner.next();
+		//System.out.print(A1+B1);
+
+		int sbst1 = substring1(A1,B1);
+		System.out.print(sbst1);
+		//substring1(A1,B1);
+	}
+}

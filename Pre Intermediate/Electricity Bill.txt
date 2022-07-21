@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+class Main {
+	public static void main(String args[]) {
+		// Your code goes here
+		Scanner myScanner = new Scanner(System.in);
+		int n = myScanner.nextInt();
+		// 0-100 (Rs 10)
+		if (n<=100){
+			System.out.println(n*10);
+		}
+		else if (n<=200){
+			System.out.println(1000 + (n-100)*20);
+		}
+		else if (n<=300){
+			System.out.println(1000 + 2000 + (n-200)*30);
+		}
+		else if (n<=400){
+			System.out.println(1000 + 2000 + 3000 + (n-300)*50);
+		}
+
+
+	}
+}

@@ -1,0 +1,16 @@
+import java.util.Scanner;
+class Main {
+	public static void main(String args[]) {
+		// Your code goes here
+		Scanner myScanner = new Scanner(System.in);
+		long A = myScanner.nextLong();
+		long dec = 0;
+		long dig = 0;
+		for (int i=0; A!=0; i++){
+			dig = A%10;
+			A=A/10;
+			dec = dec + (long)(dig*Math.pow(2,i));
+		}
+		System.out.println(dec);
+	}
+}

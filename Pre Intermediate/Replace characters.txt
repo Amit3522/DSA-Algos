@@ -1,0 +1,30 @@
+import java.util.Scanner;
+class Main {
+	static String replace(String A, int B,int C){
+		int l1=A.length();
+		char[] ch1=A.toCharArray();
+		int l2=ch1.length;
+		char[] ch2= new char[l2];
+		for(int i=0;i<l1;i++){
+				if(ch1[i]==B){ // char to int converson
+					ch2[i]=(char)C; // int to char converson
+				}
+				else{
+					ch2[i]=ch1[i];
+				}
+		}
+		String s5 = String.valueOf(ch2);
+		return s5;
+	}
+	public static void main(String args[]) {
+		Scanner myScanner= new Scanner(System.in);
+		String S1 = myScanner.next();
+		int A1 = myScanner.nextInt();
+		int B1 = myScanner.nextInt();
+
+		//System.out.print(S1+" "+A1+" "+B1);
+
+		String s6 =replace(S1,A1,B1);
+		System.out.print(s6);
+	}
+}

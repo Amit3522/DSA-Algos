@@ -1,0 +1,17 @@
+public class Solution {
+    public String solve(String A) {
+        int N= A.length();
+		int start = 0;
+		while(start<N && A.charAt(start)=='*'){
+			start++;
+		}
+		if(start==N){
+			return "";
+		}
+		int end =N-1;
+		while(end>=0 && A.charAt(end)=='*'){
+			end--;
+		}
+		return A.substring(start,end+1);
+    }
+}

@@ -1,0 +1,130 @@
+import java.util.*;
+class Main {
+
+	 	static class Node{
+			int data;
+			Node next;
+			public Node(){
+				this.data =0;
+				this.next=null;
+			}
+		}
+
+		static  Node head = null; static int size =0;
+		 
+		 static void addFirst(int val){
+			 Node temp = new Node();
+			 temp.data=val;
+			if(head!=null){
+				temp.next=head;
+				head=temp;
+			}
+			else{
+				head=temp;
+			}	
+			size++;			
+		 }
+			
+		 static void addLast(int val){
+			 
+				Node temp = new Node();
+			    temp.data=val;
+
+			 if(head==null){
+				 head=temp;
+			 }	
+			else{
+				Node prev = head;
+			    int counter =1;
+				while(counter< size-1){
+				 prev=prev.next;
+				 counter++;
+			    }	
+			 prev.next=temp;
+				
+			}
+			size++;
+		 }
+
+		 static void AddAtPos(int val , int pos){
+			 if(pos>=0 && pos<=size){
+				 Node temp= new Node();
+				 temp.data = val;
+				 if(pos==0){
+					 temp.next=head;
+					 head=temp;
+				 }
+				 else{
+					 Node prev = head;
+					 int counter = 1;
+					 while(counter<pos){
+						 prev=prev.next;
+						 counter++;
+					 }
+					 temp.next = prev.next;
+					 prev.next=temp;
+				 }
+				 size++;
+			 }
+		 }
+
+		 static void delNode(int pos){
+			 if(pos>=0 && pos<size){
+				 if(pos==0){
+					 head=head.next;
+				 }
+				 else{
+					 int counter =1;
+					 Node prev = head;
+					 while(counter<pos){
+						 prev = prev.next;
+						 counter++;
+					 }
+						prev.next=prev.next.next;
+				 }
+				 size--;
+			 }
+		 }
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		ArrayList<ArrayList<Integer>> a  = new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> b = new ArrayList<Integer>();
+		ArrayList<Integer> c = new ArrayList<Integer>();
+		ArrayList<Integer> d = new ArrayList<Integer>();
+		b.add(0); b.add(1); b.add(-1);
+		c.add(1); c.add(2); c.add(-1);
+		d.add(2); d.add(3); d.add(1);
+
+		a.add(b); a.add(c); a.add(d);
+		
+		//System.out.print(a.get(2).get(1));
+
+		for(int i=0;i<a.size();i++){
+			int type = a.get(i).get(0);
+			int x = a.get(i).get(1);
+			int y = a.get(i).get(2);
+
+			if(type==0){
+				addFirst(x);
+			}
+			else if(type==1){
+				addLast(x);
+			}
+			else if(type==2){
+				AddAtPos(x,y);
+			}
+			else if(type==3){
+				delNode(x);
+			}
+			
+		}
+
+		while(head!=null){
+			System.out.print(head.data);
+			head=head.next;
+		}
+
+		
+	}
+}

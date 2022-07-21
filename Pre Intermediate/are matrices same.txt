@@ -1,0 +1,44 @@
+import java.util.Scanner;
+class Main {
+	static int same(int[][] A1, int[][] B1){
+		int r3=A1.length;
+		int c3=A1[0].length;
+		int r4=B1.length;
+		int c4=B1[0].length;
+		for(int i=0;i<r4;i++){
+			for(int j=0;j<c4;j++)  {
+				if(A1[i][j]!=B1[i][j]){
+					return 0;
+				}
+			}
+		}
+		return 1; 
+	} 
+
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int r1=myScanner.nextInt();
+		int c1= myScanner.nextInt();
+		int[][] A=new int[r1][c1];
+		for(int i=0;i<r1;i++){
+			for(int j=0;j<c1;j++){
+				A[i][j]=myScanner.nextInt();
+				//System.out.print(A[i][j]);
+			}
+		}
+		int r2=myScanner.nextInt();
+		int c2=myScanner.nextInt();
+		int[][] B=new int[r2][c2];
+		for(int i=0;i<r2;i++){
+			for(int j=0;j<c2;j++){
+				B[i][j]=myScanner.nextInt();
+				//System.out.print(B[i][j]);
+			}
+		}
+		int s = same(A,B);
+		System.out.print(s);
+
+		
+	}
+}

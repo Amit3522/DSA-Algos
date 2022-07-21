@@ -1,0 +1,33 @@
+import java.lang.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // YOUR CODE GOES HERE
+        // Please take input and print output to standard input/output (stdin/stdout)
+        // DO NOT USE ARGUMENTS FOR INPUTS
+        // E.g. 'Scanner' for input & 'System.out' for output
+      Scanner myScanner = new Scanner(System.in);
+		int N = myScanner.nextInt();
+		for (int i=1 ; i<=N;i++){
+		int A = myScanner.nextInt();
+		int B = myScanner.nextInt();
+		int c = A<B?A:B; // smaller number
+		int d= A>B?A:B;// bigger number
+		
+		if (d%c==0){
+			System.out.println(c);
+		}
+		else {
+			for (int j=c/2; j>=1;j--){
+				if(c%j==0 && d%j==0){
+					System.out.println(j);
+					break;
+				}
+			}
+
+		}
+		}
+        
+    }
+}

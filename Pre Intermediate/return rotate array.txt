@@ -1,0 +1,60 @@
+import java.util.Scanner;
+class Main {
+	static int sumar(int[] ar2){
+		int n = ar2.length;
+		int sum=0;
+		for (int i=0;i<n;i++){
+			sum=sum+ar2[i];
+		}
+		return sum;
+	}
+	static int maxx(int[] ar3){
+		int n = ar3.length;
+		int max = 0;
+		for (int i=0;i<n;i++){
+			if(max<ar3[i]){
+				max=ar3[i];
+			}
+		}
+		return max;
+	}
+	static int[] rotate(int[] ar4){
+		int n = ar4.length;
+		int temp=ar4[n-1];
+		for(int i=n-2;i>=0;i--){
+			ar4[i+1]=ar4[i];
+		}
+		ar4[0]=temp;
+		for (int i=0;i<n;i++){
+			System.out.print(ar4[i]+" ");
+			
+		}
+		return ar4;
+	}
+
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n =  myScanner.nextInt();
+		int[] ar1=new int[n];
+		for (int i=0;i<n;i++){
+			ar1[i]= myScanner.nextInt();
+		}
+		int[] rotar = rotate(ar1);
+		
+	}
+}
+	/* pgm for sum
+		int summ = sumar(ar1);
+		System.out.print(summ);
+
+		pgm for max number in Array
+		int maximum = maxx(ar1);
+		System.out.print(maximum);
+
+		pgm to rotate and array by 1
+		rotate(ar1);
+		
+
+
+		*/

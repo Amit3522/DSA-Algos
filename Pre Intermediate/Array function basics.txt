@@ -1,0 +1,54 @@
+import java.util.Scanner;
+class Main {
+	static void writ(int[] arry){ // writ function and declare array by int[] arry
+		int n = arry.length; // function to specify the length of array
+		for (int i = 0; i<n;i++){ // for loop to print ith element of array
+			System.out.print(arry[i]+" "); 
+		}	
+	}
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in); // intialize scanner
+		int n = myScanner.nextInt(); // read size of array
+		int[] ar1 = new int[n];//declare and intialize array i.e. - specify the size 
+		for (int i =0;i<n;i++){ // for loop for reading elements of array one by one
+			ar1[i]=myScanner.nextInt(); // read ith element of array
+			
+		}
+		
+		writ(ar1);// call function write and pass input array
+	}
+}
+=====
+
+import java.util.Scanner;
+class Main {
+		/*write a function with name writ
+			return type = void
+			input parameter = array
+			declare array =  int[] array
+		*/
+	static void writ(int[] array){
+		//read length  of array using array.length function;
+		int n = array.length;
+		// use for loop print element of array from 0 to nextInt
+		for(int i =0; i < n; i++){
+			System.out.print(array[i]+" ");
+		}
+	}
+
+	public static void main(String args[]) {
+		// Your code goes here
+		Scanner myScanner = new Scanner(System.in); // declare and intialize scanner
+		int n = myScanner.nextInt(); // read input n - size of array here
+		//declare te array = intiize with size new
+		int[] ar1 = new int[n];
+		// run for loop to read array elements
+		for (int i =0; i<n;i++){
+			//read ith element of the array
+			ar1[i]=myScanner.nextInt();
+		}
+		// call a function with name writ and pass ar1 as input into ith
+		writ(ar1);
+
+	}
+}

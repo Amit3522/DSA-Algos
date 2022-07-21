@@ -1,0 +1,25 @@
+import java.util.Scanner; 
+class Main {
+	public static void main(String args[]) {
+		// Your code goes here
+		Scanner myScanner = new Scanner(System.in);
+		int T = myScanner.nextInt();
+		
+
+		for (int i =1;i<=T;i++){
+			long N = myScanner.nextLong();
+			long sum = 0;
+			long dig= 0;
+			int j = 1;
+			while (N!=0){
+			      dig =N%10; 
+				  N = N/10;
+			      sum = sum + dig ; 
+			      j++;
+			}
+			System.out.println(sum);
+		}
+			
+		
+	}
+}

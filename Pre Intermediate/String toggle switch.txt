@@ -1,0 +1,31 @@
+import java.util.Scanner;
+class Main {
+	static String ToggleSwitch(String S1){
+		int l=S1.length();
+		char[] ch =S1.toCharArray();
+		char[] ch1= new char[l];
+		for(int i=0;i<l;i++){
+			if(ch[i]>=65 && ch[i]<=90){
+				ch1[i]= (char)((int)ch[i]+32);
+			}
+			else if(ch[i]>=97 && ch[i]<=122){
+				ch1[i]=(char)((int)ch[i]-32);
+			}
+		}
+		String S2= String.valueOf(ch1);
+			return S2;
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String S= myScanner.next();
+		/*int asci = (int)'a'-32;
+		System.out.print(asci);
+		char ch=(char)65;
+		System.out.print(ch);*/
+
+		
+		String TW = ToggleSwitch(S);
+		System.out.print(TW);
+	}
+}

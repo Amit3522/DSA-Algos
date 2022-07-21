@@ -1,0 +1,23 @@
+import java.util.Scanner;
+class Main {
+	public static void main(String args[]) {
+		// Your code goes here
+		Scanner myScanner = new Scanner(System.in);
+		int N = myScanner.nextInt();
+		//int M = myScanner.nextInt();
+		for(int i = 1; i<=N; i++){
+			System.out.print("* ");
+			for (int j=1;j<=N-2;j++){
+				System.out.print("_ ");
+			}
+			System.out.print("* ");
+			System.out.println();
+		}
+		
+	}
+}
+* _ _ _ * 
+* _ _ _ * 
+* _ _ _ * 
+* _ _ _ * 
+* _ _ _ * 

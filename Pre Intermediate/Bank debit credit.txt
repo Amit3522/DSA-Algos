@@ -1,0 +1,55 @@
+import java.util.Scanner; 
+class Main {
+	public static void main(String args[]) {
+		// Your code goes here
+		Scanner myScanner = new Scanner(System.in);
+		long  N = myScanner.nextLong(); // available bacl
+		int M = myScanner.nextInt();
+		int i=1;
+		while (i<=M){
+			int type = myScanner.nextInt();
+			if (type==1){//CREDIT
+				long amt = myScanner.nextLong();
+				N= N + amt;
+				System.out.println(N);
+
+
+			}
+			else{//DEBIT
+				int amt = myScanner.nextInt();
+				if (N>=amt){
+					N = N-amt;
+					System.out.println(N);
+				}
+				else {// cannot perform debit ops
+						System.out.println("Insufficient Funds");
+				}
+				
+			}			
+			i= i+1;
+
+		}
+
+	}
+}
+
+====
+
+Scanner myScanner= new Scanner(System.in);
+        long N = myScanner.nextLong(); // amount
+        long M = myScanner.nextLong();// operations
+        for (int i =1; i<=M; i++){
+            int type= myScanner.nextInt();
+            long amt = myScanner.nextLong();
+            if (type==1){
+                N=N+amt;
+                System.out.println(N);
+            }
+            else if (type==2 && N>amt){
+                N=N-amt;
+                System.out.println(N);
+            }
+            else{
+                System.out.print("Insufficient Funds");
+            }
+        }

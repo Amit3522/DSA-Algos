@@ -1,0 +1,45 @@
+import java.util.Scanner;
+class Main {
+	public static void main(String args[]) {
+		// Your code goes here
+		Scanner myScanner = new Scanner(System.in);
+		int N = myScanner.nextInt();
+		int x= myScanner.nextInt();
+		int sum = 0;
+		
+
+		for (int i=1;i<=N;i++){
+			sum = sum+i;
+			//System.out.println(sum);
+			if (sum > x){
+				
+				break;
+			}
+		}
+		System.out.println(sum);
+	}
+}
+
+====================
+
+iterate on even nbr and break when sum> x
+import java.util.Scanner;
+class Main {
+	public static void main(String args[]) {
+		// Your code goes here
+		Scanner myScanner = new Scanner(System.in);
+		int N = myScanner.nextInt();
+		int x= myScanner.nextInt();
+		int sum = 0;
+		
+
+		for (int i=2;i<=N;i=i+2){
+			sum = sum+i;
+			if (sum > x){
+				
+				break;
+			}
+		}
+		System.out.println(sum);
+	}
+}

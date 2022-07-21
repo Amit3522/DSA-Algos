@@ -1,0 +1,37 @@
+import java.util.Scanner;
+class Main {
+	/*use .split() library function to split a string into String array where each
+	element will b a string
+	*/
+	static void printfn(String[] x){
+		int l5=x.length;
+		for (int i=0;i<l5;i++){
+			System.out.print(x[i]+" ");
+		}
+	}
+	
+
+	static String[] reverse(String A){
+		int l=A.length();
+		String[] star=A.split(" ");
+		int l1=star.length;
+		for(int i=l1-1;i>=0;i--){
+		}
+		return star;
+	}
+	
+	
+	
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String s = myScanner.nextLine();
+		//String st =myScanner.next();
+		//System.out.print(s);
+		
+		/*int sm = samesame(s, st);
+		System.out.print(sm);*/
+		String[] arr = reverse(s);
+		printfn(arr);
+		
+	}
+}

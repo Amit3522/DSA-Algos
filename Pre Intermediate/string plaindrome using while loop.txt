@@ -1,0 +1,25 @@
+import java.util.Scanner;
+class Main {
+	static boolean ispalin(String s1){
+		int p1=0;
+		int p2=s1.length()-1;
+		while(p1<p2){
+			if(s1.charAt(p1)==s1.charAt(p2)){
+				p1++;
+				p2--;
+			}
+			else {
+				return false;
+			}
+		}
+		return true;
+	}
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String s = myScanner.nextLine();
+		
+		boolean ispal=ispalin(s);
+		System.out.print(ispal);
+		
+	}
+}

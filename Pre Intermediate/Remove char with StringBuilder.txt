@@ -1,0 +1,25 @@
+import java.util.Scanner;
+class Main {
+	static String replace(String A, int B){
+        int l1=A.length();
+		StringBuilder S5= new StringBuilder();
+		for(int i=0;i<l1;i++){
+			if(A.charAt(i)!=B){
+				S5.append(A.charAt(i)); 
+			}
+		}
+		String S6=S5.toString();
+			return S6;
+    }
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String A1= myScanner.next();
+		int B1= myScanner.nextInt();
+
+		//System.out.print(A1+" "+B1);
+
+		String s5= replace(A1,B1);
+		System.out.print(s5);
+	}
+}

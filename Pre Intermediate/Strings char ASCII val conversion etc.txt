@@ -1,0 +1,62 @@
+import java.util.Scanner;
+class Main {
+	/*There are 128 ASCII values, char, symbols , special chars are stored in 
+	terms of integers, ASCII value is the int value corresponding to that 
+	char, special char, sybol
+	*/
+	/*
+	char to int converson possble directly
+	int to char converson is not possible directly
+	use char ch=(char)i; 
+	*/
+
+	static int Uppercount(String s1){// count uppercases in a string
+		int l=s1.length();// read length of string first
+		int count=0;
+		for(int i=0;i<l;i++){
+			if(s1.charAt(i)>=65 && s1.charAt(i)<=90){
+				count=count+1;
+			}
+		}
+		return count;
+	}
+
+	static void printASCII(){ // pgm to print ASCII 
+		for(int i=0;i<128;i++){
+			char ch2=(char)i; // converting integer to char
+			System.out.println(i+" "+ch2);
+		}
+	}
+
+	static void printASCIIval(){
+		char ch1 = ' ';
+		int val = ch1;
+		System.out.print(val);
+
+	}
+	
+	
+	static void ctocu(String s1, char ch){ // pgm to count the occurances of a char
+		int l=s1.length();
+		int count= 0;
+		for(int i=0;i<l;i++){
+			if(ch==s1.charAt(i)){
+				count=count+1; 
+			}
+		}
+		System.out.print(count);
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String s= myScanner.nextLine();
+		char ch = 'a';
+		//ctocu(s,ch);
+		//printASCIIval();
+		//printASCII();
+		int UC= Uppercount(s);
+		System.out.print(UC);
+
+
+	}
+}

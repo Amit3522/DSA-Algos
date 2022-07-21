@@ -1,0 +1,28 @@
+import java.util.Scanner;
+class Main {
+	static int[] voco(String s1){
+		int l=s1.length();
+		int vcount=0;
+		int[] vcct=new int[2];
+		int[] vc1 =new int[2];
+		for (int i=0;i<l;i++){	
+			if(s1.charAt(i)=='a'||s1.charAt(i)=='e'||s1.charAt(i)=='i'||s1.charAt(i)=='o'||
+			s1.charAt(i)=='u'){
+				vcount=vcount+1;
+			}
+		}
+		vc1[0] =vcount;
+		vc1[1] = l-vcount; 
+		return vc1;
+	}
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String s = myScanner.nextLine();
+		
+		int[] vc= voco(s);
+		for (int i=0;i<2;i++){
+				System.out.print(vc[i]+" ");
+		}
+		
+	}
+}

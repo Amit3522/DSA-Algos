@@ -1,0 +1,8 @@
+public class Solution {
+    public String solve(String A, String B) {
+
+        String S = new String();
+        S= A + B;
+        return S; 
+    }
+}

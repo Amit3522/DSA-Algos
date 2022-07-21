@@ -1,0 +1,29 @@
+		Scanner myScanner = new Scanner(System.in);
+		int T = myScanner.nextInt();
+		for (int j = 1;j<=T;j++){
+		int n = myScanner.nextInt();
+		if (n==0||n==1){
+			System.out.print("Yes");
+		}
+		else {
+			int firstnbr = 0;
+			int scndnbr = 1;
+			int sum = 0;
+			for (int i=1; i<=n;i++){
+				sum=firstnbr+scndnbr;//0 1=1 , 1+ 1= 2
+				firstnbr=scndnbr;//1, 1
+				scndnbr=sum;//1, 2
+				if (sum==n){
+					break;
+				}
+				
+			}
+			if(sum==n){
+				System.out.print("Yes");
+			}
+			else {
+				System.out.print("No");
+			}
+
+		}
+		}

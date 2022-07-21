@@ -1,0 +1,36 @@
+import java.util.Scanner;
+class Main {
+	static int det(int[][] A1){
+		int r1=A1.length;
+		int c1=A1[0].length;
+		int det=0;
+		for(int i=0;i<r1;i++){
+			for (int j=0;j<c1;j++){
+				if(r1==2){
+					det=A1[0][0]*A1[1][1]-A1[0][1]*A1[1][0];
+				}
+				else{
+					det=A1[0][0]*(A1[1][1]*A1[2][2]-A1[1][2]*A1[2][1])
+					-A1[0][1]*(A1[1][0]*A1[2][2]-A1[1][2]*A1[2][0])
+					+A1[0][2]*(A1[1][0]*A1[2][1]-A1[1][1]*A1[2][0]);
+				}
+			}
+		}
+		return det;
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner= new Scanner(System.in);
+		int r= myScanner.nextInt();
+		int c= myScanner.nextInt();
+		int[][] A=new int[r][c];
+		for (int i=0;i<r;i++){
+			for (int j=0;j<c;j++){
+				A[i][j]=myScanner.nextInt();
+				//System.out.print(A[i][j]);
+			}
+		}
+		int d =det(A);
+		System.out.print(d);
+	}
+}

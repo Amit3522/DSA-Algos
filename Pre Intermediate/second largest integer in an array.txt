@@ -1,0 +1,32 @@
+import java.util.Scanner;
+class Main {
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int N = myScanner.nextInt();
+		if (N<=1){
+			System.out.print("NA");
+		}
+		else {
+		int[] A= new int[N];
+		int largest=Integer.MIN_VALUE;
+		int secondlargest=Integer.MIN_VALUE;
+		for(int i=0;i<N;i++){
+			A[i]=myScanner.nextInt();
+			if(A[i]>largest){
+				secondlargest=largest;
+				largest=A[i];
+			}
+			else if(secondlargest<A[i] && A[i]!=largest){
+				secondlargest=A[i];
+			}
+		 }
+		 if(secondlargest==Integer.MIN_VALUE){
+			 System.out.print("NA");
+		 }else{
+			 System.out.print(secondlargest);
+		 }
+		
+		}
+	}
+
+}

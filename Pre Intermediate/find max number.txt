@@ -1,0 +1,42 @@
+import java.util.Scanner;
+class Main {
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int a = myScanner.nextInt();
+		int b = myScanner.nextInt();
+		int c=  myScanner.nextInt();
+
+		if (a==b && b==c){
+			System.out.println("All numbers are equal , a=b=c , max number is " + a);
+		}
+	
+		else if (a!=b && b!=c && a>b && a>c){
+			System.out.println(" a>b and a> c and b!=c, Max number is a=" + a);
+		}
+		else if (a!=b && a!=c && b>a && b>c){
+			System.out.println("Max number is b=" + b);
+		}
+		else if (a!=b && b!=c && c!=a && c>a && c> b){
+			System.out.println("a!=b and b!=c, Max number is c=" + c);
+		}
+		else if (a==b && b>c){
+			System.out.println("a=b and b>c, Max number is " + a);
+		}
+		else if (b==c && a>b){
+			System.out.println("b=c and a>b, Max number is " + a);
+		}
+		else if (a==b && c>b){
+			System.out.println("a=b and c>b, Max number is " + c);
+		}
+		else if (a==c && b>a){
+			System.out.println("a=c and b>a, Max number is "+ b);
+		}
+		else if (a< b && b==c ){
+			System.out.println("a<b and b=c, Max number is " + b);
+		}
+		else if (a==c && a>b){
+			System.out.println("a=c and a>b, Max number is "+ a);
+		}
+
+	}
+}
