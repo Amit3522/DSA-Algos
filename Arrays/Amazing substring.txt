@@ -1,0 +1,38 @@
+You are given a string S, and you have to find all the amazing substrings of S.
+
+An amazing Substring is one that starts with a vowel (a, e, i, o, u, A, E, I, O, U).
+
+Input
+
+Only argument given is string S.
+Output
+
+Return a single integer X mod 10003, here X is the number of Amazing Substrings in given the string.
+
+import java.util.Scanner;
+class Main {
+	static int AmazingArray(String A){
+		int l=A.length();
+		int count=0;
+		for(int i=0;i<l;i++){
+			if(A.charAt(i)=='A' || A.charAt(i)=='a' ||
+			A.charAt(i)=='E' || A.charAt(i)=='e' ||
+			A.charAt(i)=='I' || A.charAt(i)=='i' ||
+			A.charAt(i)=='O' || A.charAt(i)=='o' ||
+			A.charAt(i)=='U' || A.charAt(i)=='u' ){
+				count=count+l-i;
+			}
+		}
+		return count%10003;
+}
+
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String s =myScanner.next();
+		
+	
+		int AAr = AmazingArray(s);
+		System.out.print(AAr);
+	}
+}

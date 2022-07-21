@@ -1,0 +1,57 @@
+import java.util.Scanner;
+class Main {
+	// prefix sum subArray
+	static int prefs(int[] A){
+		int l=A.length;
+		int[] pfs = new int[l];
+		pfs[0]=A[0];
+		for(int i=1;i<l;i++){
+			pfs[i]=pfs[i-1]+A[i];
+		}
+		return pfs[l-1];
+	}
+	//sum of all elements in an array
+	static int ArraySum(int[] A){
+		int l=A.length;
+		int sum=0;
+		for(int i=0;i<l;i++){
+			sum=sum+A[i];
+		}
+		return sum;
+	}
+	//print a fixed subArray
+	static int[] FixedsubArrays(int[] A, int s, int e){
+		int l= A.length;
+		int l1=e-s+1;
+		int[] result =new int[l1];
+		for(int i=0;i<l1;i++){
+			result[i]=A[i+s];
+		}
+		return result;
+	}
+	static int subArrays123(int[] A){
+		int l=A.length;
+		int sum = Integer.MAX_VALUE;
+		for(int i=0;i<l;i++){
+			for(int j=i;j<l;j++){
+				int sublen=j-i+1;
+				int[] Allsubarrays = new int[sublen];
+				for(int k=0;k<sublen;k++){
+					Allsubarrays[k]=FixedsubArrays(A,i,j)[k];	
+				}
+				sum=Math.min(sum,ArraySum(Allsubarrays));
+			}	
+		}
+				return sum;
+	}
+	public static void main(String args[]) {
+		Scanner myScanner= new Scanner(System.in);
+		int n = myScanner.nextInt();
+		int[] a = new int[n];
+		for(int i=0;i<n;i++){
+			a[i]=myScanner.nextInt();
+		}
+		 int sss = subArrays123(a);
+		 System.out.print(sss);	
+	}
+}

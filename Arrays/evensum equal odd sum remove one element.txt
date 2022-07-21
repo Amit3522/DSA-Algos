@@ -1,0 +1,70 @@
+Given an array, arr[] of size N, the task is to find the count of array indices such that removing an element from these indices makes the sum of even-indexed and odd-indexed array elements equal.
+
+
+
+
+
+import java.util.Scanner;
+class Main {
+	static int pfsEvenOdd(int[] A){
+		// construct prefix sum array for even indices
+		int l=A.length;
+		int[] pfsEven=new int[l];
+		pfsEven[0]=A[0];
+		for(int i=1;i<l;i++){
+			if(i%2==1){
+				pfsEven[i]=pfsEven[i-1];
+			}
+			else{
+				pfsEven[i]=pfsEven[i-1]+A[i];
+			}
+		}
+		//construct prefix sum array for odd numbers
+		int[] pfsodd=new int[l];
+		pfsodd[0]=0;
+		for(int i=1;i<l;i++){
+			if(i%2==0){
+				pfsodd[i]=pfsodd[i-1];
+			}
+		    else{
+				 pfsodd[i]=pfsodd[i-1]+A[i];
+		 	}
+		}
+
+		int evensum=0; int oddsum=0; int count = 0;
+		for(int i=0;i<l;i++){
+			
+			if(i==0){
+				evensum=pfsodd[l-1]-pfsodd[0];
+				oddsum=pfsEven[l-1]-pfsEven[0];
+			}
+			else{
+				evensum=pfsEven[i-1]+pfsodd[l-1]-pfsodd[i];
+				oddsum=pfsodd[i-1]+pfsEven[l-1]-pfsEven[i];
+
+			}
+			if(evensum==oddsum){
+				count=count+1;
+			}
+		}
+
+			return count;
+			
+	}
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n = myScanner.nextInt();
+		int[] a = new int[n];
+		for(int i=0;i<n;i++){
+			a[i]=myScanner.nextInt();
+			//System.out.print(a[i]);
+		}
+		int rm =pfsEvenOdd(a);
+		System.out.print(rm);
+
+		/*int[] pe=pfsEvenOdd(a);
+		for(int j=0;j<n;j++){
+			System.out.print(pe[j]+" ");
+		}*/
+	}
+}

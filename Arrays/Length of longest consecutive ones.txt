@@ -1,0 +1,75 @@
+Given a binary string A. It is allowed to do at most one swap between any 0 and 1. Find and return the length of the longest consecutive 1’s that can be achieved.
+
+
+Input Format
+
+The only argument given is string A.
+Output Format
+
+Return the length of the longest consecutive 1’s that can be achieved.
+Constraints
+
+1 <= length of string <= 1000000
+A contains only characters 0 and 1.
+For Example
+
+Input 1:
+    A = "111000"
+Output 1:
+    3
+
+Input 2:
+    A = "111011101"
+Output 2:
+
+
+
+
+
+import java.util.*;
+class Main {
+	static int LongestConscOnes(String A){
+		int l=A.length();
+		int ans =0;
+		int j= 0; int count = 0; 
+		int one = 0;
+		// iterate on string and increase count by 1 if a 0 is found
+		for(int i=0;i<l;i++){ 
+			if(A.charAt(i)=='0'){
+				count=count+1;
+			}
+			else{
+				one=one+1;
+			}
+		// when count > 1, 
+			while(count>1){
+				if(A.charAt(j)=='0'){ 
+					count=count-1; 
+				}
+				//System.out.println(j);
+				j++;
+			}
+			// find length and check if it's > than ans
+			int len=i-j+1; 
+			if(len>ans){
+				ans=len;
+			}
+		}
+			System.out.println(ans);
+			System.out.println(one);
+			return Math.min(ans,one); 
+
+		
+		
+	}
+
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String s = myScanner.next();
+		//System.out.print(s.charAt(3));
+
+		int z = LongestConscOnes(s);
+		System.out.print(z);
+	}
+}

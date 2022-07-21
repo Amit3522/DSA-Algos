@@ -1,0 +1,27 @@
+import java.util.Scanner;
+class Main {
+	static void maxMin(int[] A1){
+		int l=A1.length;
+		int max=A1[0];
+		int min=A1[0];
+		for(int i=0;i<l;i++){
+			if(A1[i]>max){
+				max=A1[i];
+			}
+			if(A1[i]<min){
+				min=A1[i];
+			}
+		}
+		System.out.print(max+" "+min);
+	}
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int N = myScanner.nextInt();
+		int[] A = new int[N];
+		for(int i=0;i<N;i++){
+			A[i]=myScanner.nextInt();
+			//System.out.print(A[i]);
+		}
+		maxMin(A);
+	}
+}

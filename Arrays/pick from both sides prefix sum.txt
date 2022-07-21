@@ -1,0 +1,85 @@
+
+1 2 3 4 5
+
+b= 3
+
+L r
+0 3
+
+
+3 0
+2 1
+l=1
+r =2
+
+L= 1
+leftsum= pfs[0] 
+
+L= 2
+leftsum= pfs[1] 
+
+rightsum
+
+R = B-L = 2 
+rightsum = pfs[N-1] - pfs[N-1-R]
+
+===
+
+import java.util.Scanner;
+class Main {
+	static int maxSum(int[] A, int B){
+		
+		int[] pfs=new int[A.length];
+		pfs[0]=A[0];
+		for(int i=1;i<A.length;i++){
+				pfs[i]=pfs[i-1]+A[i];
+		}
+
+		int leftsum=0;
+		int rightsum=0;
+		int ans1=Integer.MIN_VALUE;
+		int L;int R;
+		for(int i=0;i<=B;i++){
+			L = i; R = B-L;
+			if(L>0){
+				leftsum= pfs[L-1];
+			}
+			else {
+				leftsum=0;
+			}
+			if(A.length-1-R>=0){
+				rightsum= pfs[A.length-1] -pfs[A.length-1-R];
+			}
+			else{
+				rightsum= pfs[A.length-1];
+			}
+			
+			ans1=Math.max(leftsum+rightsum, ans1);
+		}
+		return ans1;
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int N = myScanner.nextInt();
+		int[] a =new int[N];
+		for(int i=0;i<N; i++){
+			a[i]=myScanner.nextInt();
+
+		}
+
+		int b= myScanner.nextInt();
+
+		int s =maxSum(a,b);
+		System.out.print(s);
+
+	}
+}
+
+
+
+
+
+
+
+

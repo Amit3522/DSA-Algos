@@ -1,0 +1,60 @@
+ Counting Subarrays Easy
+
+Given an array A of N non-negative numbers and a non-negative number B,
+you need to find the number of subarrays in A with a sum less than B.
+We may assume that there is no overflow.
+
+
+
+Example Input
+Input 1:
+
+ A = [2, 5, 6]
+ B = 10
+Input 2:
+
+ A = [1, 11, 2, 3, 15]
+ B = 10
+
+
+Example Output
+Output 1:
+
+ 4
+Output 2:
+
+ 4
+import java.util.Scanner;
+class Main {
+	static int maxSubArray(int[] A, int B ){
+		int l=A.length;
+		int count=0;
+		for(int i=0;i<l;i++){
+			int sum =0;
+			for(int j=i;j<l;j++){
+				sum=sum+A[j];
+				if(sum<B){
+					count=count+1;
+				}
+			}
+		}
+		return count; 
+	}
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n = myScanner.nextInt();
+		int[] a= new int[n];
+		for(int i=0;i<n;i++){
+			a[i]=myScanner.nextInt();
+			//System.out.print(a[i]);
+		}
+		int b=myScanner.nextInt();
+		//System.out.print(b);
+		int max =maxSubArray(a,b);
+		System.out.print(max);
+	}
+}
+
+
+
+

@@ -1,0 +1,24 @@
+You are given a 2D integer matrix A, return a 1D integer vector containing row-wise sums of original matrix.
+
+
+
+
+
+
+
+public class Solution {
+    public int[] solve(int[][] A) {
+        int r=A.length;
+        int c=A[0].length;
+        int[] ans= new int[r];
+        
+        for(int i=0;i<r;i++){
+            int sum=0;
+            for(int j=0;j<c;j++){
+                sum=sum+A[i][j];
+            }
+            ans[i]=sum; 
+        }
+        return ans; 
+    }
+}

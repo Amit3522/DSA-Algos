@@ -1,0 +1,41 @@
+Leaders in the array
+
+Given an integer array A containing N distinct integers, you have to find all the leaders in array A.
+
+An element is a leader if it is strictly greater than all the elements to its right side.
+
+NOTE:The rightmost element is always a leader
+
+
+public class Solution {
+    public int[] solve(int[] A) {
+        		int l=A.length;
+		int[] A1=new int[l];
+		int count=1;
+		int max = A[l-1];
+		A1[0]=A[l-1];
+	
+		for(int i=l-2;i>=0;i--){
+			if(A[i]>max){
+				count= count+1;
+				A1[i]=A[i];
+				max=A[i];
+			}
+		}
+		
+		int count2 = 0;
+		for(int j = 0;j<l;j++){
+			if(A1[j]!=0){
+				
+				A1[count2++]=A1[j];
+			}
+		}
+	
+		int[] A2 =new int [count2];
+		for(int k=0;k<count2;k++){
+			A2[k]=A1[k];
+		}
+
+		return A2;
+    }
+}

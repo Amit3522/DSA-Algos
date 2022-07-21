@@ -1,0 +1,37 @@
+ Special Subsequences "AG"
+Problem Description
+
+You have given a string A having Uppercase English letters.
+
+You have to find how many times subsequence "AG" is there in the given string.
+
+NOTE: Return the answer modulo 109 + 7 as the answer can be very large
+
+import java.util.Scanner;
+class Main {
+	static int SpSeq(String A){
+		int l=A.length();
+		int count=0;
+		int ans=0;
+		for(int i=l-1;i>=0;i--){
+			if(A.charAt(i)=='G'){
+				count=count+1;
+			}
+			if(A.charAt(i)=='A'){
+				ans=ans+count;
+			}
+		}
+		return ans;
+	}
+	
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		String a= myScanner.next();
+		
+			//System.out.print(a);
+		
+		int SQ=SpSeq(a);
+			System.out.print(SQ);
+		
+	}
+}

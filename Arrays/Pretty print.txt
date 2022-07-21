@@ -1,0 +1,28 @@
+public class Solution {
+
+    public int[][] prettyPrint(int A) {
+        int l = A * 2 - 1;
+        int mx = l;
+        int AA = A;
+        int[][] ans = new int[l][l];
+       // int a = 0;
+       int row1 = 0; 
+       
+        while (l >= (mx / 2)) {
+             int row2 = l-1;
+            for(int j = row1; j <= row2; j++) {
+                ans[row1][j] = AA;
+                ans[row2][j] = AA;
+            }
+            for(int i = row1; i <= row2; i++) {
+                ans[i][row1] = AA;
+                ans[i][row2] = AA;
+            }
+            AA--;
+            l--;
+            row1++;
+
+        }
+            return ans;
+    }
+}

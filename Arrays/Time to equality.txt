@@ -1,0 +1,34 @@
+Given an integer array A of size N. In one second, you can increase the value of one element by 1.
+
+Find the minimum time in seconds to make all elements of the array equal.
+
+import java.util.Scanner;
+class Main {
+	static int Ttq(int[] A){
+		int l=A.length;
+		int max=A[0];
+		for(int i=0;i<l;i++){
+			if(A[i]>max){
+				max=A[i];
+			}
+		}
+		int result=0;int diff=0;
+		for(int j=0;j<l;j++){
+			diff=max-A[j];
+			result=result+diff;
+		}
+
+		return result; 
+	}
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n = myScanner.nextInt();
+		int[] a=new int[n];
+		for(int i=0;i<n;i++){
+			a[i]=myScanner.nextInt();
+			//System.out.print(a[i]);
+		}
+		int tq= Ttq(a);
+		System.out.print(tq);
+	}
+}

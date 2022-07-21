@@ -1,0 +1,32 @@
+import java.util.Scanner;
+class Main {
+	static void sep(int[] a1){
+		int l1=a1.length;
+		for(int i=0;i<l1;i++){
+			if(a1[i]%2!=0){
+				System.out.print(a1[i]+" ");
+			}
+		}
+		System.out.println();
+		for(int i=0;i<l1;i++){
+			if(a1[i]%2==0){
+				System.out.print(a1[i]+" ");
+			}
+		}
+			System.out.println();
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int T = myScanner.nextInt();
+		for(int i=0;i<T;i++){
+			int l=myScanner.nextInt();
+			int[] a= new int[l];
+			for(int j=0;j<l;j++){
+				a[j]=myScanner.nextInt();
+				//System.out.print(a[j]);
+			}
+			sep(a);
+		}
+	}
+}

@@ -1,0 +1,63 @@
+import java.util.Scanner; 
+class Main {
+	static int[] reverse(int[] A1){
+		int l1 =A1.length;
+		int temp;
+		int i =0; int j=l1-1; 
+		while(i<j){
+			temp=A1[i];
+			A1[i] =A1[j];
+			A1[j]=temp;
+			i++;
+			j--;
+		}
+		return A1; 
+	}
+
+	static int[] rotate1(int[] A2, int B1 ){
+		int l2=A2.length;
+		int temp1;
+		int i=0; int j= B1-1;
+		while(i<j){
+			temp1= A2[i];
+			A2[i]=A2[j];
+			A2[j]=temp1;
+			i++;
+			j--;
+		}
+		return A2;
+	}
+	static int[] rotate2(int[] A3, int B2){
+		int l3= A3.length;
+		int temp2;
+		int i =B2; int j=l3-1;
+		while(i<j){
+			temp2=A3[i];
+			A3[i]=A3[j];
+			A3[j]=temp2;
+			i++;
+			j--;
+		}
+			return A3;
+	}
+ 
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int l=myScanner.nextInt();
+		int[] A =new int[l];
+		for(int i=0;i<l;i++){
+			A[i]=myScanner.nextInt();
+			
+		}
+		int B = myScanner.nextInt();
+		B=B%l;
+		int[] re =reverse(A);
+		int[] ro1=rotate1(re,B);
+		int[] ro2=rotate2(ro1,B);
+		
+		for(int i=0;i<l;i++){
+			System.out.print(ro2[i]);
+		}
+	}	
+}

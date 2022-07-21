@@ -1,0 +1,41 @@
+import java.util.Scanner;
+class Main {
+	static int[][] learn(int[] A, int[] B){
+		int l1=A.length;
+		int l2=B.length;
+		int[][] op=new int[l2][l1];
+		for(int i=0;i<l2;i++){
+			for(int j=0;j<l1;j++){
+				op[i][j]=A[(j+B[i])%l1];
+			}
+		}
+		return op;
+	}	
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n1=myScanner.nextInt();
+		int[] a=new int[n1];
+		for(int i=0;i<n1;i++){
+				a[i]=myScanner.nextInt();
+				//System.out.print(a[i]);
+			}
+			//System.out.println();
+		int n2=myScanner.nextInt();
+		int[] b=new int[n2];
+		for(int j=0;j<n2;j++){
+				b[j]=myScanner.nextInt();
+				//System.out.print(a[j]);
+		}
+
+		int[][] ans= learn(a,b);	
+		for(int k=0;k<n2;k++){
+			for(int m=0;m<n1;m++){
+				System.out.print(ans[k][m]);
+			}
+			System.out.println();
+			
+		}
+
+	}
+}

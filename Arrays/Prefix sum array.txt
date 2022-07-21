@@ -1,0 +1,51 @@
+import java.util.Scanner;
+class Main {
+	static long[] RSQ(int[] A, int[][]B){
+		long[] pfs=new long[A.length];
+		pfs[0]=A[0];
+		for(int i=1;i<A.length;i++){
+			pfs[i]=pfs[i-1]+A[i];
+		}
+		//sum from L to R
+		//pfs[R]-pfs[L-1]
+		
+		int l2=A.length;
+		int le1=B.length;
+		int br1=B[0].length;
+		long [] result=new long[le1];
+		for(int i=0;i<le1;i++){
+				int L= B[i][0]-1;
+				int R = B[i][1]-1; //R
+				long sum=pfs[R]; 
+				if(L>0){
+					sum=sum-pfs[L-1];
+				}
+				result[i]=sum;
+		}
+		return result;
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n = myScanner.nextInt();
+		int[] a= new int[n];
+		for(int i=0;i<n;i++){
+			a[i]=myScanner.nextInt();
+			//System.out.print(a[i]);
+		}
+		int le=myScanner.nextInt();
+		int[][] m=new int [le][2];
+		for(int j=0;j<le;j++){
+			for(int k=0;k<2;k++){
+				m[j][k]=myScanner.nextInt();
+				//System.out.print(m[j][k]);
+			}
+		}
+
+		long[] rsq= RSQ(a, m);
+		for(int d=0;d<le;d++){
+			System.out.print(rsq[d]+" ");
+		}
+
+	}
+}

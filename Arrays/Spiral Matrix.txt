@@ -1,0 +1,118 @@
+
+Problem Description
+Given an integer A, generate a square matrix filled with elements from 1 to A2 in spiral order.
+
+
+
+Problem Constraints
+1 <= A <= 1000
+
+
+
+Input Format
+First and only argument is integer A
+
+
+Output Format
+Return a 2-D matrix which consists of the elements in spiral order.
+
+
+
+Example Input
+Input 1:
+
+1
+Input 2:
+
+2
+
+
+Example Output
+Output 1:
+
+[ [1] ]
+Output 2:
+
+[ [1, 2], [4, 3] ]
+
+
+Example Explanation
+Explanation 1:
+
+ 
+Only 1 is to be arranged.
+Explanation 2:
+
+1 --> 2
+      |
+      |
+4<--- 3
+
+
+
+
+
+
+
+
+import java.util.*;
+class Main {
+	static int[][] spiral(int A){
+		int r =A;
+		int c= A; 
+		int[][] s= new int[r][c];
+		int start = 1; 
+		int minR = 0; int maxR =r-1; 
+		int minC = 0; int maxC =c-1; 
+		// print top boundary
+		int count =0;
+	   	while(start<=A*A){
+		for(int j=minC;j<=maxC ;j++){
+			int i=minR;
+			s[i][j]=start;
+			start++;
+			count=count+1;
+		}
+		minR++;
+		// print right boundary
+		for(int i=minR;i<=maxR;i++){
+			int j=maxC;
+			s[i][j]=start;
+			start++;
+			count=count+1;
+		}
+		maxC--;
+		// print bottom boundary
+		for(int j=maxC;j>=minC;j--){
+			int i=maxR;
+			s[i][j]=start;
+			start++;
+			count=count+1;
+		}
+		maxR--;
+		// print left boundary
+		for(int i=maxR;i>=minR;i--){
+			int j=minC;
+			s[i][j]=start;
+			start++;
+			count=count+1;
+		}
+		minC++;
+	}
+		return s; 
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int a =myScanner.nextInt();
+		//System.out.print(a);
+
+		int[][] S = spiral(a);
+		for(int i=0;i<a;i++){
+			for(int j=0;j<a;j++){
+				System.out.print(S[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+}

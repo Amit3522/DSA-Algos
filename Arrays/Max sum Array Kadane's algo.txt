@@ -1,0 +1,33 @@
+Max Sum Contiguous Subarray
+Find the contiguous non-empty subarray within an array, A of length N, with the largest sum.
+
+
+import java.util.Scanner;
+class Main {
+	static int maxSubArray(int[] A){
+		int l=A.length;
+		int maxsum=Integer.MIN_VALUE;
+		int cursum=0;
+		for(int i=0;i<l;i++){
+			cursum=cursum+A[i];
+			if(cursum<A[i]){
+				cursum=A[i];
+			}
+			if(cursum>maxsum){
+				maxsum=cursum;
+			}
+		}
+		return maxsum;
+	}
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n = myScanner.nextInt();
+		int[] a= new int[n];
+		for(int i=0;i<n;i++){
+			a[i]=myScanner.nextInt();
+			//System.out.print(a[i]);
+		}
+		int max =maxSubArray(a);
+		System.out.print(max);
+	}
+}

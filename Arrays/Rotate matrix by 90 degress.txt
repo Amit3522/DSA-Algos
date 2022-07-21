@@ -1,0 +1,31 @@
+public class Solution {
+    public void solve(int[][] A) {
+        int r= A.length;
+        int c= A[0].length;
+        // Transpose the matrix to convert rows into columns
+        for(int i=0;i<r;i++){
+            for(int j=i;j<c;j++){
+                int temp=A[i][j];
+                A[i][j]=A[j][i];
+                A[j][i]=temp;
+            }
+        }
+        //reverse the rows of transposed matrix
+        for(int i=0;i<r;i++){
+            int x=r-1; int y=0;
+            while(x>y){
+                int temp =A[i][y];
+                A[i][y]=A[i][x];
+                A[i][x]=temp;
+                x--;
+                y++;
+            }
+
+        }
+       /* for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                System.out.print(A[i][j]);
+            }
+        }*/
+    }
+}

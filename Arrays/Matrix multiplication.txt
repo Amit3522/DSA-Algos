@@ -1,0 +1,54 @@
+import java.util.Scanner;
+class Main {
+	static int[][] matMul(int[][] A, int[][] B){
+		int r1=A.length;
+		int c1=A[0].length;
+		int r2=B.length;
+		int c2=B[0].length;
+		
+		int[][] ans=new int[r1][c2];
+		for(int i=0;i<r1;i++){
+			for(int j=0;j<c2;j++){
+				int sum = 0;
+				for(int k=0;k<c1;k++){
+					sum=sum+A[i][k]*B[k][j];
+					ans[i][j]=sum;
+				}
+			}
+		}
+		return ans;
+	}
+
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int r1=myScanner.nextInt();
+		int c1=myScanner.nextInt();
+		int[][] a= new int[r1][c1];
+		for(int i=0;i<r1;i++){
+			for(int j=0;j<c1;j++){
+				a[i][j]=myScanner.nextInt();
+				//System.out.print(a[i][j]);
+			}
+			//System.out.println();
+		}
+		int r2=myScanner.nextInt();
+		int c2=myScanner.nextInt();
+		int[][] b= new int[r2][c2];
+		for(int k=0;k<r2;k++){
+			for(int l=0;l<c2;l++){
+				b[k][l]=myScanner.nextInt();
+				//System.out.print(b[k][l]);
+			}
+			//System.out.println();
+		}
+		int[][] mul = matMul(a,b);
+		for(int m=0;m<r1;m++){
+			for(int n=0;n<c2;n++){
+				System.out.print(mul[m][n]+" ");
+			}
+			System.out.println();
+		}
+
+
+	}
+}

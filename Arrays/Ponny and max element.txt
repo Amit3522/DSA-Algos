@@ -1,0 +1,33 @@
+import java.util.Scanner;
+class Main {
+	static int ops(int[] A, int B){
+		int l=A.length;
+		int flag=0; int count=0;
+		for(int i=0;i<l;i++){
+			if(A[i]==B){
+				flag=1;
+			}
+			if(A[i]>B){
+				count=count+1;
+			}
+		}
+		if(flag==1){
+			return count; 
+		}
+		return -1; 
+	}
+	public static void main(String args[]) {
+		Scanner myScanner =new Scanner(System.in);
+		int n = myScanner.nextInt();
+		int[] A1=new int[n];
+		for(int i=0;i<n;i++){
+			A1[i]=myScanner.nextInt();
+		}
+		int B1 = myScanner.nextInt();
+		int op = ops(A1,B1);
+		System.out.print(op);
+	
+
+	
+	}
+}

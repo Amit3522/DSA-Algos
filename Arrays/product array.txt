@@ -1,0 +1,35 @@
+product array
+
+Given an array of integers A, find and return the product array of the same size where the ith element of the product array will be equal to the product of all the elements divided by the ith element of the array.
+
+Note: It is always possible to form the product array with integer (32 bit) values.
+
+import java.util.Scanner;
+class Main {
+	static int[] prodA(int[] A){
+		int l=A.length;
+		int prod =1;
+		for(int i =0;i<l;i++){
+			prod=prod*A[i];
+		}
+		int[] result= new int[l];
+		for(int j=0;j<l;j++){
+			result[j]=prod/A[j];
+		}
+		return result;
+	}
+	
+	public static void main(String args[]) {
+		Scanner myScanner = new Scanner(System.in);
+		int n=myScanner.nextInt();
+		int[] a= new int[n];
+		for (int i=0;i<n;i++){
+			a[i]=myScanner.nextInt();
+			//System.out.print(a[i]);
+		}
+		int[] PA=prodA(a);
+		for(int j=0;j<n;j++){
+			System.out.print(PA[j]+" ");
+		}
+	}
+}
